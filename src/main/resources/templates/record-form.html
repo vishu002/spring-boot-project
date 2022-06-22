@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <title>Library Management System</title>
+    <style>
+body{
+        background-image:url('https://www.ppt-backgrounds.net/thumbs/book-design-for-design-templates-backgrounds.jpg');
+        background-repeat:no-repeat;
+        background-size:100%;
+    }
+</style>
+</head>
+<center>
+<body>
+<font><marquee direction='right' scrollamount="8" bgcolor="black" ><font color="white" size="6" face="italic" >Welcome to College Central Library</font></marquee></font>
+<hr>
+<div class="container">
+
+    <h3 class="mt-3">Library Management System</h3>
+    <hr>
+    <form class="form-width" action="#" th:action="@{/admin/record/saveRecord}" method="POST">
+
+        <input type="hidden" th:field="${record.id}" />
+
+        <div class="alert alert-danger" th:if="${#fields.hasErrors('record.studentRollno')}" th:errors="${record.studentRollno}"></div>
+        <label  class="form-label">Student Rollno<span class="required">*</span></label>
+        <select id="studentRollno" name="studentRollno" class="form-select mb-4" placeholder="select student rollno">
+            <option selected>Select Student Rollno</option>
+            <div th:each="student : ${students}">
+                <option th:text="${student.rollno}"></option>
+            </div>
+        </select>
+
+        <div class="alert alert-danger" th:if="${#fields.hasErrors('record.bookId')}" th:errors="${record.bookId}"></div>
+       <label  class="form-label">Book Id<span class="required">*</span></label>
+        <select id="bookId" name="bookId" class="form-select mb-4" placeholder="select books">
+            <option selected>Select a book</option>
+            <div th:each="book : ${books}">
+                <option th:text="${book.id}"></option>
+            </div>
+        </select>
+
+        <div class="alert alert-danger" th:if="${#fields.hasErrors('recordDetail.issuedOn')}" th:errors="${recordDetail.issuedOn}"></div>
+        <label  class="form-label">Issued On<span class="required">*</span></label>
+        <input type="date" th:field="${recordDetail.issuedOn}"
+               class="form-control mb-4" placeholder="yyyy-mm-dd">
+
+        <div class="alert alert-danger" th:if="${#fields.hasErrors('recordDetail.returnOn')}" th:errors="${recordDetail.returnOn}"></div>
+        <label class="form-label">Return On<span class="required">*</span></label>
+        <input type="date" th:field="${recordDetail.returnOn}"
+               class="form-control mb-4" placeholder="yyyy-mm-dd">
+
+        <button type="submit" class="btn btn-info col-2">Save</button>
+
+    </form>
+    <hr>
+    <a th:href="@{/admin/record/records}"><input type="button" value="Central library Records" class="btn btn-info col-2" /></a>
+
+</div>
+</body>
+</center>
+</html>
+
+
+
+
+
+
+
+
+

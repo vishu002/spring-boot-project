@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <title>Library Management System</title>
+    <style>
+        body{
+        background-image:url('https://www.ppt-backgrounds.net/thumbs/book-design-for-design-templates-backgrounds.jpg');
+        background-repeat:no-repeat;
+        background-size:100%;
+    }
+    </style>
+</head>
+<center>
+<body>
+<font><marquee direction='right' scrollamount="8" bgcolor="black" ><font color="white" size="6" face="italic" >Welcome to College Central Library</font></marquee></font>
+<hr>
+<div class="container mt-4">
+    <h1 class="text-center">Welcome to Central Library</h1>
+
+        <h4  class="text-right"><a th:href="@{/login}">Admin Login</a></h4>
+        <hr>
+        <h2>The Books available in the Library are listed below :</h2>
+        <hr>
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+            <tr>
+                <th>Id</th>
+                <th>Book Name</th>
+                <th>Author</th>
+                <th>Published On</th>
+                <th>No of Copies</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr th:each="book : ${books}">
+
+                <td th:text="${book.getId()}" />
+                <td th:text="${book.getName()}" />
+                <td th:text="${book.getAuthor()}" />
+                <td th:text="${book.getPublishedOn()}" />
+                <td th:text="${book.getNoOfCopies()}" />
+
+            </tr>
+            </tbody>
+        </table>
+        <hr>
+
+    </div>
+
+
+
+
+</body>
+</center>
+</html>

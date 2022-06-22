@@ -1,0 +1,63 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <title>Library Management System</title>
+    <style>
+body{
+        background-image:url('https://www.ppt-backgrounds.net/thumbs/book-design-for-design-templates-backgrounds.jpg');
+        background-repeat:no-repeat;
+        background-size:100%;
+    }
+</style>
+</head><center>
+<body>
+<font><marquee direction='right' scrollamount="8" bgcolor="black" ><font color="white" size="6" face="italic" >Welcome to College Central Library</font></marquee></font>
+<hr>
+<div class="container">
+
+    <h3 class="mt-3">Borrowed Books List</h3>
+    <hr>
+
+    <h2 class="text-center mt-2 mb-3">Books borrowed by <span th:text="${student}"></span></h2>
+    <hr>
+    <div th:if="${borrowedBookDetails.size()==0}" class="text-center">
+        <h3>This student did not borrow any books.</h3>
+    </div>
+    <table th:if="${borrowedBookDetails.size()!=0}" class="table table-bordered table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th>Book Id</th>
+            <th>Book Name</th>
+            <th>Author</th>
+            <th>Published On</th>
+            <th>Issued On</th>
+            <th>Returned On</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="borrowedBookDetail : ${borrowedBookDetails}">
+
+            <td th:text="${borrowedBookDetail.getBook().getId()}" />
+            <td th:text="${borrowedBookDetail.getBook().getName()}" />
+            <td th:text="${borrowedBookDetail.getBook().getAuthor()}" />
+            <td th:text="${borrowedBookDetail.getBook().getPublishedOn()}" />
+            <td th:text="${borrowedBookDetail.getRecord().getRecordDetail().getIssuedOn()}" />
+            <td th:text="${borrowedBookDetail.getRecord().getRecordDetail().getReturnOn()}" />
+
+        </tr>
+        </tbody>
+    </table>
+
+    <hr>
+    <a th:href="@{/admin/student/students}"><input type="button" value="Student List" class="btn btn-info col-2" /></a>
+
+</div>
+</body></center>
+</html>
