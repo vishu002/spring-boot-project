@@ -35,6 +35,14 @@ public class Book {
     @Pattern(regexp = "[0-9]{4}-[0-9]{2}-[0-9]{2}",message = "field should be in yyyy-mm-dd pattern")
     private String publishedOn;
 
+    public Book(Integer id, String name, String author, String publishedOn, Integer noOfCopies) {
+        this.id = id;
+        this.name = name;
+        this.author = author;
+        this.publishedOn = publishedOn;
+        this.noOfCopies = noOfCopies;
+    }
+
     @Column(name = "no_of_copies")
     @NotNull(message = "field is required")
     private Integer noOfCopies;

@@ -1,4 +1,4 @@
-package com.zemoso.springbootassignment;
+package com.zemoso.springbootassignment.controller;
 
 import com.zemoso.springbootassignment.controller.GlobalController;
 import com.zemoso.springbootassignment.service.BookService;

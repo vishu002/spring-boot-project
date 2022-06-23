@@ -1,4 +1,4 @@
-package com.zemoso.springbootassignment;
+package com.zemoso.springbootassignment.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.zemoso.springbootassignment.controller.BookController;
@@ -58,7 +58,7 @@ class BookControllerTests {
     ObjectMapper objectMapper = new ObjectMapper();
 
     @Test
-    @WithMockUser(username = "Arifa", password = "admin", roles = "ADMIN")
+    @WithMockUser(username = "yash", password = "admin", roles = "ADMIN")
     void load_GetMapping_Books() throws Exception{
         List<Book> books=new ArrayList<>();
         books.add(new Book(1001,"Java","Balaguru","2021-03-09",10,null));
@@ -75,7 +75,7 @@ class BookControllerTests {
     }
 
     @Test
-    @WithMockUser(username = "Arifa", password = "admin", roles = "ADMIN")
+    @WithMockUser(username = "yash", password = "admin", roles = "ADMIN")
     void load_GetMapping_AddBookForm() throws Exception{
         mockMvc
                 .perform(get("/admin/book/addBookForm"))
@@ -83,7 +83,7 @@ class BookControllerTests {
     }
 
     @Test
-    @WithMockUser(username = "Arifa", password = "admin", roles = "ADMIN")
+    @WithMockUser(username = "yash", password = "admin", roles = "ADMIN")
     void IfValid_SaveBook() throws Exception{
 
         Book book=new Book(1001,"Java","Balaguru","2021-03-09",10,null);
@@ -108,7 +108,7 @@ class BookControllerTests {
     }
 
     @Test
-    @WithMockUser(username = "Arifa", password = "admin", roles = "ADMIN")
+    @WithMockUser(username = "yash", password = "admin", roles = "ADMIN")
     void IfInValid_DoNotSaveBook() throws Exception{
 
         mockMvc.perform(post("/admin/book/saveBook")
@@ -126,7 +126,7 @@ class BookControllerTests {
     }
 
     @Test
-    @WithMockUser(username = "Arifa", password = "admin", roles = "ADMIN")
+    @WithMockUser(username = "yash", password = "admin", roles = "ADMIN")
     void load_GetMapping_DeleteBook() throws Exception{
 
         mockMvc
@@ -139,7 +139,7 @@ class BookControllerTests {
     }
 
     @Test
-    @WithMockUser(username = "Arifa", password = "admin", roles = "ADMIN")
+    @WithMockUser(username = "yash", password = "admin", roles = "ADMIN")
     void load_GetMapping_StudentsBorrowed() throws Exception{
 
         List<Student> students=new ArrayList<>();
@@ -163,7 +163,7 @@ class BookControllerTests {
 
 
     @Test
-    @WithMockUser(username = "Arifa", password = "admin", roles = "ADMIN")
+    @WithMockUser(username = "yash", password = "admin", roles = "ADMIN")
     void load_GetMapping_UpdateBookForm() throws Exception{
 
         Book tempBook=new Book(1001,"Java","Balaguru","2021-03-09",10,null);

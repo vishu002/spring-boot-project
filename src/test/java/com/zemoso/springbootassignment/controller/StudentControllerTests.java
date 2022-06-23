@@ -1,4 +1,4 @@
-package com.zemoso.springbootassignment;
+package com.zemoso.springbootassignment.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.zemoso.springbootassignment.controller.StudentController;
