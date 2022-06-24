@@ -27,21 +27,21 @@ class BookServiceImplTest {
     private BookRepository bookRepository;
 
 
-//    @Test
-//    void findBookById() {
-//        Book book = new Book(0, "yash", "yuga", "2022-06-22",10);
-//
-//        when(bookRepository.findById(0)).thenReturn(Optional.of(book));
-//
-//        assertEquals(book, Optional.of(bookService.findById(0)));
-//    }
-//    @Test
-//    void findBookByIdException() {
-//        Book book = new Book(0, "yash", "yuga", "2022-06-22",10);
-//        when(bookRepository.findById(2)).thenReturn(Optional.of(book));
-//
-//        assertThrows(RuntimeException.class, ()-> bookService.findById(0));
-//    }
+    @Test
+    void findBookById() {
+        Book book = new Book(0, "yash", "yuga", "2022-06-22",10);
+
+        when(bookRepository.findById(0)).thenReturn(Optional.of(book));
+
+        assertEquals(book, Optional.of(bookService.findById(0)));
+    }
+    @Test
+    void findBookByIdException() {
+        Book book = new Book(0, "yash", "yuga", "2022-06-22",10);
+        when(bookRepository.findById(2)).thenReturn(Optional.of(book));
+
+        assertThrows(RuntimeException.class, ()-> bookService.findById(0));
+    }
 
     @Test
     void saveBook() {
