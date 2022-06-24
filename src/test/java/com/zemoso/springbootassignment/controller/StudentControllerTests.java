@@ -57,7 +57,7 @@ class StudentControllerTests {
     ObjectMapper objectMapper = new ObjectMapper();
 
     @Test
-    @WithMockUser(username = "yash", password = "admin", roles = "ADMIN")
+    @WithMockUser(username = "Arifa", password = "admin", roles = "ADMIN")
     void load_GetMapping_Students() throws Exception{
 
         List<Student> students=new ArrayList<>();
@@ -76,7 +76,7 @@ class StudentControllerTests {
     }
 
     @Test
-    @WithMockUser(username = "yash", password = "admin", roles = "ADMIN")
+    @WithMockUser(username = "Arifa", password = "admin", roles = "ADMIN")
     void load_GetMapping_AddStudentForm() throws Exception{
         mockMvc
                 .perform(get("/admin/student/addStudentForm"))
@@ -84,7 +84,7 @@ class StudentControllerTests {
     }
 
     @Test
-    @WithMockUser(username = "yash", password = "admin", roles = "ADMIN")
+    @WithMockUser(username = "Arifa", password = "admin", roles = "ADMIN")
     void IfValid_SaveStudent() throws Exception{
 
         Student student=new Student(101,"steven","grant",21,"Male","CSE","MVSR",null);
@@ -113,7 +113,7 @@ class StudentControllerTests {
     }
 
     @Test
-    @WithMockUser(username = "yash", password = "admin", roles = "ADMIN")
+    @WithMockUser(username = "Arifa", password = "admin", roles = "ADMIN")
     void IfInvalidDoNotSaveStudent() throws Exception{
 
         mockMvc.perform(post("/admin/student/saveStudent")
@@ -133,7 +133,7 @@ class StudentControllerTests {
     }
 
     @Test
-    @WithMockUser(username = "yash", password = "admin", roles = "ADMIN")
+    @WithMockUser(username = "Arifa", password = "admin", roles = "ADMIN")
     void load_GetMapping_UpdateStudentForm() throws Exception{
 
         Student tempStudent=new Student(101,"steven","grant",21,"Male","CSE","MVSR",null);
@@ -151,7 +151,7 @@ class StudentControllerTests {
     }
 
     @Test
-    @WithMockUser(username = "yash", password = "admin", roles = "ADMIN")
+    @WithMockUser(username = "Arifa", password = "admin", roles = "ADMIN")
     void load_GetMapping_DeleteStudent() throws Exception{
 
         mockMvc
@@ -164,7 +164,7 @@ class StudentControllerTests {
     }
 
     @Test
-    @WithMockUser(username = "yash", password = "admin", roles = "ADMIN")
+    @WithMockUser(username = "Arifa", password = "admin", roles = "ADMIN")
     void load_GetMapping_BorrowedBooks() throws Exception{
 
         List<Book> books=new ArrayList<>();

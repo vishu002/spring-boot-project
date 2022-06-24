@@ -50,7 +50,7 @@ class GlobalControllerTests {
     }
 
     @Test
-    @WithMockUser(username = "yash", password = "admin", roles = "ADMIN")
+    @WithMockUser(username = "Arifa", password = "admin", roles = "ADMIN")
     void accessDenied() throws Exception{
         mockMvc.perform(MockMvcRequestBuilders.get("/accessDenied")).andExpect(status().isOk());
     }

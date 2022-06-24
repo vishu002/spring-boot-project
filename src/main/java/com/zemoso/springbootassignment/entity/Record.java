@@ -21,6 +21,12 @@ public class Record  {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    public Record(Integer id, Integer studentRollno, Integer bookId) {
+        this.id = id;
+        this.studentRollno = studentRollno;
+        this.bookId = bookId;
+    }
+
     @Column(name = "student_rollno")
     @NotNull(message = "field is required")
     private Integer studentRollno;

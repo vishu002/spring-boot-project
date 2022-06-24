@@ -26,6 +26,16 @@ public class Student {
     @NotEmpty(message = "field is required")
     private String firstName;
 
+    public Student(Integer rollno, String firstName, String lastName, Integer age, String gender, String branch, String college) {
+        this.rollno = rollno;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.gender = gender;
+        this.branch = branch;
+        this.college = college;
+    }
+
     @Column(name = "last_name")
     @NotEmpty(message = "field is required")
     private String lastName;

@@ -26,6 +26,14 @@ public class Book {
     @Column(name = "name")
     private String name;
 
+    public Book(Integer id, String name, String author, String publishedOn, Integer noOfCopies) {
+        this.id = id;
+        this.name = name;
+        this.author = author;
+        this.publishedOn = publishedOn;
+        this.noOfCopies = noOfCopies;
+    }
+
     @NotEmpty(message = "field is required")
     @Column(name = "author")
     private String author;
